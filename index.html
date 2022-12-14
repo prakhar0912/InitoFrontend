@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            height: 100%;
+        }
+
+        .left {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-color: #fbfaf8;
+            color: #d8bb88;
+        }
+
+        .content {
+            position: relative;
+            margin: 50px 20px;
+            display: grid;
+            grid-template-columns: 100%;
+            justify-items: left;
+            align-items: center;
+        }
+
+        .content>* {
+            display: block;
+        }
+
+        .content>h1 {
+            margin-bottom: 50px;
+            font-size: 4rem;
+        }
+
+        button {
+            background-color: #19312e;
+            color: whitesmoke;
+            border: none;
+            padding: 20px 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 10px;
+        }
+
+        .whole {
+            position: relative;
+            margin-bottom: 100px;
+        }
+
+        textarea {
+            width: 80%;
+            height: 100px;
+            padding: 10px 10px;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        .right {
+            position: relative;
+            background-color: #19312e;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 100%;
+            align-items: center;
+            justify-items: center;
+            overflow: hidden;
+        }
+
+        .logs {
+            position: relative;
+            height: 90%;
+            width: 90%;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 1.1rem;
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: auto;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        .logs>pre {
+            position: relative;
+            display: block;
+        }
+
+        
+        @media only screen and (max-width: 900px) {
+
+            body{
+                height: 100%;
+            }
+
+            .container{
+                grid-template-columns: none;
+                grid-template-rows: auto auto;
+            }
+
+            .right{
+                min-height: 700px;
+            }
+
+            .logs{
+                height: 80%;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="content">
+                <h1>Online Log Reader</h1>
+                <button class="whole">Fetch Whole Log File</button>
+                <h1>Append Log File</h1>
+                <textarea name=""></textarea>
+                <button class="update">Update Log File</button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="logs">
+                By default only the new logs will show up...
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"
+        integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI"
+        crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
